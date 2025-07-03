@@ -2,6 +2,9 @@ package com.wrapper;
 
 import static io.restassured.RestAssured.*;
 
+import com.filters.LoggingFilter;
+
+import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
@@ -11,6 +14,10 @@ public class BaseService {
 	private static final String BASE_URI = "https://swift.techwithjatin.com";
 	private RequestSpecification requestSpecification;
 
+	static {
+		RestAssured.filters(new LoggingFilter());
+	}
+	
 	public BaseService() {
 		requestSpecification = given().baseUri(BASE_URI);
 	}
