@@ -10,6 +10,7 @@ import com.services.AuthService;
 
 import io.restassured.response.Response;
 
+@Listeners(com.api.listeners.TestListener.class)
 public class AuthServiceTest {
 
 	private AuthService authService;

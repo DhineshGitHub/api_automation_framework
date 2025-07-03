@@ -40,5 +40,15 @@ public class BaseService {
 				.extract()
 				.response();
 	}
+	
+	protected Response putRequest(Object payload) {
+		return requestSpecification
+				.contentType(ContentType.JSON)
+				.body(payload)
+				.put()
+				.then()
+				.extract()
+				.response();
+	}
 
 }

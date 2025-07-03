@@ -1,5 +1,6 @@
 package com.services;
 
+import com.modals.requestModal.UpdateProfileRequestModal;
 import com.wrapper.BaseService;
 
 import io.restassured.response.Response;
@@ -12,6 +13,12 @@ public class ProfileService extends BaseService{
 		setBasicPath(BASE_PATH + "profile");
 		setAuthorization(token);
 		return getRequest();
+	}
+	
+	public Response updateProfile(String token, UpdateProfileRequestModal payload) {
+		setBasicPath(BASE_PATH + "profile");
+		setAuthorization(token);
+		return putRequest(payload);
 	}
 	
 }
